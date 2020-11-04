@@ -7,27 +7,59 @@
 </head>
 <body>
     <h1>Titanic Traveller</h1>
-    <p>Board the Titanic and see if you survive</p>
+    <p>Board the Titanic and see if you survive!</p>
     <form>
         <div>
-            <label>Name:</label>
+            <label for="Name">Name:</label>
             <select name="Title">
                 <option value="Mr">Mr</option>
-                <option value="Mrs">Mr</option>
-                <option value="Miss">Mr</option>
+                <option value="Mrs">Mrs</option>
+                <option value="Miss">Miss</option>
+                <option value="Master">Master</option>
             </select>
-            <input type="text" placeholder="Jack Dawson">
+            <input type="text" id="Name" name="Name" placeholder="Jack Dawson">
         </div>
         <div>
-            <label>Age:</label>
-            <input type="number" name="Age">
+            <label for="Age">Age:</label>
+            <input type="number" name="Age" id="Age" value="18"> years old
         </div>
         <div>
-            <label>Class:</label>
-            <select name="Pclass">
+            <input type="radio" id="male" name="Is_Female" value="0">
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="Is_Female" value="1">
+            <label for="female">Female </label>(sorry there are only two options rip)
+        </div>
+        <div>
+            <label for="Pclass">Class:</label>
+            <select name="Pclass" id="Pclass">
                 <option value="1">First class</option>
                 <option value="2">Second class</option>
                 <option value="3">Stowage</option>
+            </select>
+        </div>
+        <div>
+            <label for="Family_size">Travelling with</label>
+            <select name="Family_size" id="Family_size">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+            <label> family members</label>
+        </div>
+        <div>
+            <label for="Embarked">Port Embarked:</label>
+            <select name="Embarked" id="Embarked">
+                <option value="C">Cherbourg</option>
+                <option value="Q">Queenstown</option>
+                <option value="S">Southampton</option>
             </select>
         </div>
         <input type="submit" value="Set Sail">
