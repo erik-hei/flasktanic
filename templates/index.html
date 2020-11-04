@@ -8,7 +8,7 @@
 <body>
     <h1>Titanic Traveller</h1>
     <p>Board the Titanic and see if you survive!</p>
-    <form>
+    <form method="POST" action="{{ url_for('results') }}">
         <div>
             <label for="Name">Name:</label>
             <select name="Title">
@@ -24,9 +24,9 @@
             <input type="number" name="Age" id="Age" value="18"> years old
         </div>
         <div>
-            <input type="radio" id="male" name="Is_Female" value="0">
+            <input type="radio" id="male" name="Is_female" value="0">
             <label for="male">Male</label>
-            <input type="radio" id="female" name="Is_Female" value="1">
+            <input type="radio" id="female" name="Is_female" value="1">
             <label for="female">Female </label>(sorry there are only two options rip)
         </div>
         <div>

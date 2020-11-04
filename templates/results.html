@@ -6,9 +6,18 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>here be your results, {{title}} {{name}}</h1>
-    <p>Survived: {{survived}}</p>
-    <p>The probability of your survival was {{prob_survived}}</p>
-    <p>The model is {{score}}% accurate</p>    
+    <h2>Results for {{title}} {{name}}</h2>
+    {% if survived %}
+        <h1>Congrats! You made it!</h1>
+    {% else %}
+        <h1>Sorry, you didn't make it.</h1>
+    {% endif %}
+    <p>The probability of your survival was predicted to be {{prob_survived}}%</p>
+    {% if prob_survived < 50 and survived %}
+        <p>(You got lucky!)</p>
+    {% elif prob_survived > 50 and not survived %}
+        <p>(You were unlucky)</p>
+    {% endif %}
+    <p>Model accuracy: {{score}}%</p> 
 </body>
 </html>

@@ -14,11 +14,9 @@ def make_model():
     features_train, features_test, target_train, target_test = \
         train_test_split(features, target, test_size=0.2, random_state=0)
 
-    model = RandomForestClassifier()
-    return model
-
-def model_score(model):
-    return cross_val_score(model, features, target, cv=RepeatedStratifiedKFold()).mean()
+    model = RandomForestClassifier().fit(features,target)
+    score = cross_val_score(model, features, target, cv=RepeatedStratifiedKFold()).mean()
+    return (model, score)
 
 def test_model(model, Age, Is_female, Pclass, emb_C, emb_Q, emb_S, Family_size, Mr, Mrs, Master, Miss):
     d = {
@@ -36,5 +34,9 @@ def test_model(model, Age, Is_female, Pclass, emb_C, emb_Q, emb_S, Family_size, 
     }
     test = pd.DataFrame(data=d)
 
+    test_features = test[['Age','Is_female','Pclass','emb_C','emb_Q',
+                 'emb_S', 'Family_size','Mr','Mrs','Master','Miss']]
+
     prob_survived = model.predict_proba(test_features)[0][1]
+    
     return prob_survived
