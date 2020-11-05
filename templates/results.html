@@ -1,23 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Titanic Traveller</title>
+        <link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='normalize.css') }}">
+        <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='skeleton.css') }}">
+        <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
 <body>
-    <h2>Results for {{title}} {{name}}</h2>
-    {% if survived %}
-        <h1>Congrats! You made it!</h1>
-    {% else %}
-        <h1>Sorry, you didn't make it.</h1>
-    {% endif %}
-    <p>The probability of your survival was predicted to be {{prob_survived}}%</p>
-    {% if prob_survived < 50 and survived %}
-        <p>(You got lucky!)</p>
-    {% elif prob_survived > 50 and not survived %}
-        <p>(You were unlucky)</p>
-    {% endif %}
-    <p>Model accuracy: {{score}}%</p> 
+    <header class="row">
+        <div class="header-img">
+        </div>
+        <div class="header-text">
+            <h1 class="fancy">Titanic Traveller</h1>
+            <h5>Board the Titanic and see if you survive!</h5>
+            <div>
+                <a href="{{ url_for('index') }}">Home</a> | <a href="https://github.com/erik-hei/flasktanic" target="_blank" rel="noopener noreferrer">About</a>
+            </div>
+        </div>
+    </header>
+    <div class="wrapper results-wrap">
+        <h2 class="fancy results-title">Results for {{title}} {{name}}</h2>
+        <div class="results"> 
+            <div class="results-img-wrap">
+                {% if survived %}
+                    <img class="results-img" src="{{ url_for('static', filename='Titanic_lifeboat.jpg') }}">
+                {% else %}
+                    <img class="results-img" src="{{ url_for('static', filename='headstone.png') }}">
+                {% endif %}
+            </div>  
+            <div class="results-text">
+                {% if survived %}
+                    <h1>Congrats! You made it!</h1>
+                {% else %}
+                    <h1>Sorry, you didn't make it.</h1>
+                {% endif %}
+                <p>The probability of your survival was predicted to be {{prob_survived}}%</p>
+                {% if prob_survived < 50 and survived %}
+                    <p>(You got lucky!)</p>
+                {% elif prob_survived > 50 and not survived %}
+                    <p>(You were unlucky)</p>
+                {% endif %}
+                <p>Model accuracy: {{score}}%</p>
+                <a href="{{ url_for('index') }}"><button>Try Again</button></a>
+            </div>     
+        </div> 
+    </div>
+    </div>
+    
 </body>
 </html>

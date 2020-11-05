@@ -36,7 +36,6 @@ def results():
     prob_survived = test_model(model, Age, Is_female, Pclass, emb_C, emb_Q, emb_S, 
                                 Family_size, Mr, Mrs, Master, Miss)
     random_chance = random.random()
-    print("YOYOYOYYO", prob_survived.item(), type(prob_survived.item()), random_chance)
     survived = random_chance < prob_survived.item()
     prob_survived = round(prob_survived*100, 1)
     
