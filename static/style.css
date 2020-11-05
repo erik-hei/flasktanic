@@ -4,7 +4,7 @@ body {
     color: yellow;
     max-width: 900px;
     margin: 0 auto;
-
+    font-size: 16px;
 }
 .fancy {
     font-family: 'Marck Script', cursive;
@@ -95,6 +95,7 @@ form {
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 .results-title {
     padding: 20px;
@@ -105,4 +106,9 @@ form {
 }
 .results-text p {
     font-size: 18px;
+}
+@media (max-width: 400px) {
+    .boarding-img {
+        height: 200px;
+    }
 }
