@@ -4,8 +4,6 @@ import random
 
 app=Flask(__name__)
 
-(model, score) = make_model()
-score = round(score * 100, 1)
 
 @app.route('/')
 def index():
@@ -15,6 +13,9 @@ def index():
 def results():
     global model
     global score
+
+    (model, score) = make_model()
+    score = round(score * 100, 1)
 
     name = request.form["Name"]
     title = request.form["Title"]
